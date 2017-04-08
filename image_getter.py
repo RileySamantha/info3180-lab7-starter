@@ -6,7 +6,7 @@ url = "https://www.walmart.com/ip/54649026"
 result = requests.get(url)
 soup = BeautifulSoup(result.text, "html.parser")
 
-def imgGet(url):
+def imgGet():
     
     imageLink=[]
     # This will look for a meta tag with the og:image property

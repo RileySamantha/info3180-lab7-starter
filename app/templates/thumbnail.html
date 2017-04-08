@@ -5,7 +5,8 @@
 {% block main %}
 {% raw %}
     <div ng-app="myApp" ng-controller="myCtrl">
-        <div ng-repeat="thumb in thumbnails track by $index">
+        <div ng-repeat="thumb in myApp track by $index" class="col-md-4, img-thumbnail">
+          <!--<div ng-repeat="thumbnail in myThumbnail track by $index" class="col-md-4, img-thumbnail">-->
             <img class="item" src="{{ thumb }}">
         </div>
 
@@ -15,7 +16,7 @@
         app.controller('myCtrl', function($scope, $http) {
             $http.get("/api/thumbnails")
                 .then(function(response) {
-                    $scope.thumbnails = response.data.thumbnails;
+                    $scope.myApp = response.data.thumbnails;
                 });
         });
     </script>

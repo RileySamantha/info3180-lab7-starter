@@ -24,14 +24,16 @@ def home():
     
 @app.route('/api/thumbnails', methods=["GET"])
 def thumbnails():
-    site_url = "https://www.walmart.com/ip/54649026"
+    #site_url = "https://www.walmart.com/ip/54649026"
     
     error= None
-    message="success"
+    message="Success"
     #thumbnail=[]
-    urls= { error:error, message:message, thumbnail:imgGet(site_url)}
-    return jsonify(urls)
+    #urls= { error:error, message:message, thumbnail:imgGet(site_url)}
+    #return jsonify(urls)
+    return jsonify (error=error, message=message, thumbnails=imgGet())
 
+    
 @app.route('/thumbnails/view')
 def t_view():
     """Render thumbnail view."""
