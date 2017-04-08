@@ -12,6 +12,7 @@ import requests
 import urlparse
 from image_getter import imgGet
 
+#url = "https://www.walmart.com/ip/54649026"
 ###
 # Routing for your application.
 ###
@@ -23,11 +24,18 @@ def home():
     
 @app.route('/api/thumbnails', methods=["GET"])
 def thumbnails():
+    site_url = "https://www.walmart.com/ip/54649026"
+    
     error= None
     message="success"
-    urls= { error:error, message:message, thumbnails:imgGet()}
+    #thumbnail=[]
+    urls= { error:error, message:message, thumbnail:imgGet(site_url)}
     return jsonify(urls)
 
+@app.route('/thumbnails/view')
+def t_view():
+    """Render thumbnail view."""
+    return render_template('thumbnail.html')
 
 ###
 # The functions below should be applicable to all Flask apps.

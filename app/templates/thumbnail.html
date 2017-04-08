@@ -1,0 +1,23 @@
+
+
+{% extends "base.html" %}
+
+{% block main %}
+{% raw %}
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div ng-repeat="thumb in thumbnails track by $index">
+            <img class="item" src="{{ thumb }}">
+        </div>
+
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get("/api/thumbnails")
+                .then(function(response) {
+                    $scope.thumbnails = response.data.thumbnails;
+                });
+        });
+    </script>
+{% endraw %}
+{% endblock %}
