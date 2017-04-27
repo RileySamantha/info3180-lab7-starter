@@ -26,12 +26,12 @@ def home():
 def thumbnails():
     #site_url = "https://www.walmart.com/ip/54649026"
     
-    error= None
-    message="Success"
+    #error= None
+    #message="Success"
     #thumbnail=[]
-    #urls= { error:error, message:message, thumbnail:imgGet(site_url)}
+    urls= { "error":"null", "message":"success", "thumbnails":imgGet()}
     #return jsonify(urls)
-    return jsonify (error=error, message=message, thumbnails=imgGet())
+    return jsonify (urls)
 
     
 @app.route('/thumbnails/view')
