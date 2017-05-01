@@ -6,7 +6,7 @@ This file creates your application.
 """
 
 from app import app
-from flask import render_template, request, redirect, url_for, jsonify
+from flask import render_template, request, redirect, url_for, jsonify, make_response
 from bs4 import BeautifulSoup
 import requests
 import urlparse
@@ -31,7 +31,8 @@ def thumbnails():
     #thumbnail=[]
     urls= { "error":"null", "message":"success", "thumbnails":imgGet()}
     #return jsonify(urls)
-    return jsonify (urls)
+    url_response = make_response(jsonify(urls))  
+    return url_response
 
     
 @app.route('/thumbnails/view')
